@@ -11,6 +11,8 @@ import { initDatabase } from "@/lib/database";
 import Login from "./pages/Login";
 import ClinicianDashboard from "./pages/clinician/Dashboard";
 import NewPatient from "./pages/clinician/NewPatient";
+import PatientDetail from "./pages/clinician/PatientDetail";
+import NewVisit from "./pages/clinician/NewVisit";
 import PatientDashboard from "./pages/patient/Dashboard";
 import NotFound from "./pages/NotFound";
 import { Loader2 } from "lucide-react";
@@ -89,6 +91,22 @@ const App = () => {
                   element={
                     <ProtectedRoute requiredRole="clinician">
                       <NewPatient />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/clinician/patients/:patientId"
+                  element={
+                    <ProtectedRoute requiredRole="clinician">
+                      <PatientDetail />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/clinician/patients/:patientId/visit/new"
+                  element={
+                    <ProtectedRoute requiredRole="clinician">
+                      <NewVisit />
                     </ProtectedRoute>
                   }
                 />
